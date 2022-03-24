@@ -1,7 +1,6 @@
 class CreateLechons < ActiveRecord::Migration[7.0]
   def change
     create_table :lechons do |t|
-      t.primary_key :id
       t.string :size
       t.integer :weight
       t.integer :base_price

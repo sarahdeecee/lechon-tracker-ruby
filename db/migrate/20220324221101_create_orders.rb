@@ -1,11 +1,9 @@
 class CreateOrders < ActiveRecord::Migration[7.0]
   def change
     create_table :orders do |t|
-      t.primary_key :id
       t.references :customer_id, null: false, foreign_key: true
       t.references :supplier_id, null: false, foreign_key: true
       t.references :oven_id, null: false, foreign_key: true
-      t.timestamp :created_at
       t.timestamp :confirmed_at
       t.timestamp :pickup_at
       t.timestamp :cook_start
