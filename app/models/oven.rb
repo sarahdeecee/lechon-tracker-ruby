@@ -1,0 +1,2 @@
+class Oven < ApplicationRecord
+end
