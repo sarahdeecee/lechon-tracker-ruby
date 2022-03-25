@@ -64,12 +64,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_24_235058) do
     t.datetime "confirmed_at", precision: nil
     t.datetime "pickup_at", precision: nil
     t.datetime "completed_at", precision: nil
-    t.boolean "completed"
-    t.boolean "delivery"
-    t.integer "delivery_charge"
-    t.string "status"
+    t.boolean "completed", default: false
+    t.boolean "delivery", default: false
+    t.integer "delivery_charge", default: 0
+    t.string "status", default: "Pending"
     t.integer "total_price"
-    t.string "payment_received"
+    t.string "payment_received", default: "Pending"
     t.string "payment_type"
     t.string "payment_holder"
     t.string "notes"

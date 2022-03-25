@@ -5,12 +5,12 @@ class CreateOrders < ActiveRecord::Migration[7.0]
       t.timestamp :confirmed_at
       t.timestamp :pickup_at
       t.timestamp :completed_at
-      t.boolean :completed
-      t.boolean :delivery
-      t.integer :delivery_charge
-      t.string :status
+      t.boolean :completed, default: false
+      t.boolean :delivery, default: false
+      t.integer :delivery_charge, default: 0
+      t.string :status, default: 'Pending'
       t.integer :total_price
-      t.string :payment_received
+      t.string :payment_received, default: 'Pending'
       t.string :payment_type
       t.string :payment_holder
       t.string :notes
