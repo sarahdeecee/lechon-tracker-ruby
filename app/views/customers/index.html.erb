@@ -1,0 +1,18 @@
+<h1>Customers</h1>
+
+<table>
+  <tr>
+  <th>Name</th>
+  <th>Phone</th>
+  <th>Email</th>
+  <th>Notes</th>
+  </tr>
+  <% @customers.each do |customer| %>
+  <tr>
+    <td><%= "#{customer.first_name} #{customer.last_name}" %></td>
+    <td><%= customer.phone %></td>
+    <td><%= customer.email %></td>
+    <td><%= customer.note %></td>
+  </tr>
+  <% end %>
+</table>
