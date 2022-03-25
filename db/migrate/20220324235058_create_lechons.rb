@@ -8,7 +8,7 @@ class CreateLechons < ActiveRecord::Migration[7.0]
       t.integer :weight
       t.integer :base_price
       t.integer :sell_price
-      t.boolean :ordered
+      t.boolean :ordered, default: false
       t.timestamp :cook_start
       t.timestamp :cook_end
 
