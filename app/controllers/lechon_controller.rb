@@ -1,0 +1,2 @@
+class LechonController < ApplicationController
+end

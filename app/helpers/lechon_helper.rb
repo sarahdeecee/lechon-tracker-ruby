@@ -1,0 +1,2 @@
+module LechonHelper
+end

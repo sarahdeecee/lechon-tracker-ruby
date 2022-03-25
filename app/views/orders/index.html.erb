@@ -1,1 +1,38 @@
-<h1>Hello, Rails!</h1>
+<h1>Orders</h1>
+
+<table>
+  <tr>
+    <th>Customer</th>
+    <th>Contact</th>
+    <th>Date Ordered</th>
+    <th>Date Confirmed</th>
+    <th>Pickup Date</th>
+    <th>Date Completed</th>
+    <th>Delivery</th>
+    <th>Delivery Charge</th>
+    <th>Status</th>
+    <th>Total</th>
+    <th>Payment</th>
+    <th>Payment Type</th>
+    <th>Payment Holder</th>
+    <th>Notes</th>
+  </tr>
+  <% @orders.each do |order| %>
+  <tr>
+    <td><%= "#{order.customer.first_name} #{order.customer.last_name}" %></td>
+    <td><%= order.customer.phone ? order.customer.phone : order.customer.email %></td>
+    <td><%= order.created_at %></td>
+    <td><%= order.confirmed_at %></td>
+    <td><%= order.pickup_at %></td>
+    <td><%= order.completed_at %></td>
+    <td><%= order.delivery ? "Yes" : "No" %></td>
+    <td><%= order.delivery_charge %></td>
+    <td><%= order.status %></td>
+    <td><%= order.total_price %></td>
+    <td><%= order.payment_received %></td>
+    <td><%= order.payment_type %></td>
+    <td><%= order.payment_holder %></td>
+    <td><%= order.notes %></td>
+  </tr>
+  <% end %>
+</table>
