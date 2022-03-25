@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_24_221421) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_24_235058) do
   create_table "customers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -29,44 +29,40 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_24_221421) do
   end
 
   create_table "deliveries", force: :cascade do |t|
-    t.integer "order_id_id", null: false
-    t.integer "deliverer_id_id", null: false
+    t.integer "order_id", null: false
+    t.integer "deliverer_id", null: false
     t.datetime "scheduled_at", precision: nil
     t.datetime "arrival_at", precision: nil
     t.string "location"
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["deliverer_id_id"], name: "index_deliveries_on_deliverer_id_id"
-    t.index ["order_id_id"], name: "index_deliveries_on_order_id_id"
+    t.index ["deliverer_id"], name: "index_deliveries_on_deliverer_id"
+    t.index ["order_id"], name: "index_deliveries_on_order_id"
   end
 
   create_table "lechons", force: :cascade do |t|
+    t.integer "supplier_id", null: false
+    t.integer "order_id", null: false
+    t.integer "oven_id", null: false
     t.string "size"
     t.integer "weight"
     t.integer "base_price"
     t.integer "sell_price"
+    t.boolean "ordered"
+    t.datetime "cook_start", precision: nil
+    t.datetime "cook_end", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "order_items", force: :cascade do |t|
-    t.integer "order_id_id", null: false
-    t.integer "lechon_id_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["lechon_id_id"], name: "index_order_items_on_lechon_id_id"
-    t.index ["order_id_id"], name: "index_order_items_on_order_id_id"
+    t.index ["order_id"], name: "index_lechons_on_order_id"
+    t.index ["oven_id"], name: "index_lechons_on_oven_id"
+    t.index ["supplier_id"], name: "index_lechons_on_supplier_id"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "customer_id_id", null: false
-    t.integer "supplier_id_id", null: false
-    t.integer "oven_id_id", null: false
+    t.integer "customer_id", null: false
     t.datetime "confirmed_at", precision: nil
     t.datetime "pickup_at", precision: nil
-    t.datetime "cook_start", precision: nil
-    t.datetime "cook_end", precision: nil
     t.datetime "completed_at", precision: nil
     t.boolean "completed"
     t.boolean "delivery"
@@ -79,9 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_24_221421) do
     t.string "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["customer_id_id"], name: "index_orders_on_customer_id_id"
-    t.index ["oven_id_id"], name: "index_orders_on_oven_id_id"
-    t.index ["supplier_id_id"], name: "index_orders_on_supplier_id_id"
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
   create_table "ovens", force: :cascade do |t|
@@ -98,11 +92,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_24_221421) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "deliveries", "deliverer_ids"
-  add_foreign_key "deliveries", "order_ids"
-  add_foreign_key "order_items", "lechon_ids"
-  add_foreign_key "order_items", "order_ids"
-  add_foreign_key "orders", "customer_ids"
-  add_foreign_key "orders", "oven_ids"
-  add_foreign_key "orders", "supplier_ids"
+  add_foreign_key "deliveries", "deliverers"
+  add_foreign_key "deliveries", "orders"
+  add_foreign_key "lechons", "orders"
+  add_foreign_key "lechons", "ovens"
+  add_foreign_key "lechons", "suppliers"
+  add_foreign_key "orders", "customers"
 end

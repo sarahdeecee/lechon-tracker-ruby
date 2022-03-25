@@ -1,5 +1,7 @@
 class Order < ApplicationRecord
-  belongs_to :customer_id
-  belongs_to :supplier_id
-  belongs_to :oven_id
+  has_many :order_items
+  has_many :lechons, :through => :order_items
+  belongs_to :customer
+  belongs_to :supplier
+  belongs_to :oven
 end
