@@ -16,18 +16,19 @@
   </div>
 
   <%= render 'lechonbutton', lechonoptions: @lechonoptions, form: form %>
+  <%= render 'cart' %>
 
   <div>
     <%= form.label 'Customer', {class: 'form-label'} %><br />
-    <%= select_tag(:id, options_from_collection_for_select(@customers, 'id', 'full_name')) %>
+    <%= select_tag(:id, options_from_collection_for_select(@customers, 'id', 'full_name'), {class: 'form-control'}) %>
   </div>
   <div>
-    <%= form.label :first_name %><br>
-    <%= form.text_field :first_name %>
+    <%= form.label :first_name, {class: 'form-label'} %><br>
+    <%= form.text_field :first_name, {class: 'form-control'} %>
   </div>
   <div>
-    <%= form.label :last_name %><br>
-    <%= form.text_field :last_name %>
+    <%= form.label :last_name, {class: 'form-label'} %><br>
+    <%= form.text_field :last_name, {class: 'form-control'} %>
   </div>
 
   <div>

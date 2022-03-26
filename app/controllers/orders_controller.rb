@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     @lechon = Lechon.new
     @lechonoptions = LechonOption.all
     @suppliers = Supplier.all
-    @customers = Customer.all
+    @customers = Customer.all.order('last_name')
   end
 
   def create
