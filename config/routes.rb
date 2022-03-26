@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   root "articles#index"
   get "/articles", to: "articles#index"
   get "/customers", to: "customers#index"
+  get "/customers/new", to: "customers#new"
   get "/orders", to: "orders#index"
+  get "/orders/new", to: "orders#new"
 end
