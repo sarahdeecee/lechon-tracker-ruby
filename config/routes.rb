@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get "/customers/new", to: "customers#new"
   get "/orders", to: "orders#index"
   get "/orders/new", to: "orders#new"
+  post "/orders/:id/new", to: "orders#new"
+  post "/orders/:id/edit", to: "orders#edit"
 end

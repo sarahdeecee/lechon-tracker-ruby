@@ -32,9 +32,9 @@ Oven.create(details: 'Large oven', created_at: 14.days.ago, updated_at: 7.days.a
 puts "Created #{Oven.count} ovens"
 
 # Order seeds
-Order.create(customer_id: 1, confirmed_at: 1.days.ago, pickup_at: 7.days.from_now, delivery: true, delivery_charge: 50.00, status: 'Pending order', payment_received: 'Pending', payment_type: 'Cash', created_at: 5.days.ago, updated_at: 5.days.ago)
-Order.create(customer_id: 2, confirmed_at: 1.days.ago, pickup_at: 7.days.from_now, delivery: true, delivery_charge: 50.00, status: 'Pending order', payment_received: 'Pending', payment_type: 'Cash', created_at: 5.days.ago, updated_at: 5.days.ago)
-Order.create(customer_id: 3, confirmed_at: 1.days.ago, pickup_at: 7.days.from_now, status: 'Pending order', payment_received: 'Pending', payment_type: 'Cash', created_at: 5.days.ago, updated_at: 5.days.ago)
+Order.create(customer_id: 1, confirmed_at: 1.days.ago, pickup_at: 7.days.from_now, delivery: true, status: 'Pending order', total_price: 200.00, payment_received: 'Pending', payment_type: 'Cash', created_at: 5.days.ago, updated_at: 5.days.ago)
+Order.create(customer_id: 2, confirmed_at: 1.days.ago, pickup_at: 7.days.from_now, delivery: true, status: 'Pending order', total_price: 200.00, payment_received: 'Pending', payment_type: 'Cash', created_at: 5.days.ago, updated_at: 5.days.ago)
+Order.create(customer_id: 3, confirmed_at: 1.days.ago, pickup_at: 7.days.from_now, status: 'Pending order', total_price: 200.00, payment_received: 'Pending', payment_type: 'Cash', created_at: 5.days.ago, updated_at: 5.days.ago)
 puts "Created #{Order.count} orders"
 
 # Delivery seeds
@@ -42,11 +42,10 @@ Delivery.create(order_id: 1, deliverer_id: 1, location: 'Toronto', address: '12 
 Delivery.create(order_id: 2, deliverer_id: 1, location: 'Toronto', address: '12 Street Ave', created_at: 14.days.ago, updated_at: 7.days.ago)
 puts "Created #{Delivery.count} deliveries"
 
-# Lechon seeds
-Lechon.create(supplier_id: 1, order_id: 1, oven_id: 1, size: 'Small', weight: 45, base_price: 100.00, sell_price: 200.00, ordered: false, created_at: 4.days.ago, updated_at: 4.days.ago)
-Lechon.create(supplier_id: 1, order_id: 2, oven_id: 1, size: 'Small', weight: 45, base_price: 100.00, sell_price: 200.00, ordered: false, created_at: 4.days.ago, updated_at: 4.days.ago)
-Lechon.create(supplier_id: 1, order_id: 3, oven_id: 1, size: 'Small', weight: 45, base_price: 100.00, sell_price: 200.00, ordered: false, created_at: 4.days.ago, updated_at: 4.days.ago)
-Lechon.create(supplier_id: 1, order_id: 3, oven_id: 2, size: 'Large', weight: 70, base_price: 200.00, sell_price: 300.00, ordered: false, created_at: 4.days.ago, updated_at: 4.days.ago)
-puts "Created #{Lechon.count} lechons"
+# Lechon options
+LechonOption.create(size: 'small', base_price: 100.00, sell_price: 150.00, description: '45-65lbs', created_at: 4.days.ago, updated_at: 4.days.ago)
+LechonOption.create(size: 'medium', base_price: 150.00, sell_price: 250.00, description: '65-85lbs', created_at: 4.days.ago, updated_at: 4.days.ago)
+LechonOption.create(size: 'large', base_price: 200.00, sell_price: 300.00, description: '85-100lbs', created_at: 4.days.ago, updated_at: 4.days.ago)
+puts "Created #{LechonOption.count} lechon options"
 
 puts 'Seeding done.'

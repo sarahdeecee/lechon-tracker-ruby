@@ -1,13 +1,12 @@
-<%= form_for :lechon do |lechon_form| %>
   <h2>New Lechon</h2>
 
   <div>
-    <%= lechon_form.label 'Supplier' %><br />
+    <%= form.label 'Supplier' %><br />
     <%= select_tag(:id, options_from_collection_for_select(@suppliers, 'id', 'company_name')) %>
   </div>
 
   <div>
-    <%= lechon_form.label :size %><br />
+    <%= form.label :size %><br />
     <%= radio_button_tag(:size, 'small') %>
     <%= label_tag(:size_s, "Small") %>
     <%= radio_button_tag(:size, 'medium') %>
@@ -15,6 +14,3 @@
     <%= radio_button_tag(:size, 'large') %>
     <%= label_tag(:size_l, "Large") %>
   </div>
-
-  <%= lechon_form.submit %>
-<% end %>

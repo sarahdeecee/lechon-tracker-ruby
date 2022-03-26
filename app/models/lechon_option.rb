@@ -1,0 +1,2 @@
+class LechonOption < ApplicationRecord
+end
