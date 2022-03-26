@@ -1,8 +1,24 @@
 <h1>New Order</h1>
 
 <%= form_with model: @order do |form| %>
+
   <div>
-    <%= form.label 'Customer' %><br />
+    <%= form.label 'Requested time', {class: 'form-label'} %><br>
+    <%= form.datetime_local_field :pickup_at, {class: 'form-control'} %>
+  </div>
+    
+  <div>
+    <%= form.label 'Delivery required?', {class: 'form-label'} %><br>
+    <%= radio_button_tag(:delivery, true) %>
+    <%= label_tag(:delivery_true, "Yes") %>
+    <%= radio_button_tag(:delivery, false) %>
+    <%= label_tag(:delivery_false, "No") %>
+  </div>
+
+  <%= render 'lechonbutton', lechonoptions: @lechonoptions, form: form %>
+
+  <div>
+    <%= form.label 'Customer', {class: 'form-label'} %><br />
     <%= select_tag(:id, options_from_collection_for_select(@customers, 'id', 'full_name')) %>
   </div>
   <div>
@@ -13,21 +29,6 @@
     <%= form.label :last_name %><br>
     <%= form.text_field :last_name %>
   </div>
-
-  <div>
-    <%= form.label 'Requested time' %><br>
-    <%= form.datetime_local_field :pickup_at %>
-  </div>
-    
-  <div>
-    <%= form.label 'Delivery required?' %><br>
-    <%= radio_button_tag(:delivery, true) %>
-    <%= label_tag(:delivery_true, "Yes") %>
-    <%= radio_button_tag(:delivery, false) %>
-    <%= label_tag(:delivery_false, "No") %>
-  </div>
-
-  <%= render 'lechon', lechon: @lechon, form: form %>
 
   <div>
     <%= form.submit %>

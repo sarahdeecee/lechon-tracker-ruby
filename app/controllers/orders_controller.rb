@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @lechon = Lechon.new
+    @lechonoptions = LechonOption.all
     @suppliers = Supplier.all
     @customers = Customer.all
   end

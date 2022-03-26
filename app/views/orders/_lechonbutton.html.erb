@@ -1,0 +1,13 @@
+<div class="row">
+  <% @lechonoptions.each do |option| %>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= option.size.capitalize() %></h5>
+        <p class="card-text"><%= option.description %></p>
+        <a href="#" class="btn btn-primary">Add</a>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
