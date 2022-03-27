@@ -4,4 +4,8 @@ class Customer < ApplicationRecord
   def full_name
     "#{try(:first_name)} #{try(:last_name)}".to_s
   end
+  def order_count
+    # Customer.joins(:orders).group(:id).count
+    Order.where(:customer_id => self.id).count
+  end
 end

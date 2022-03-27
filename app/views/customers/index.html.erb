@@ -1,18 +1,22 @@
 <h1>Customers</h1>
 
-<table>
-  <tr>
-  <th>Name</th>
-  <th>Phone</th>
-  <th>Email</th>
-  <th>Notes</th>
-  </tr>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Orders</th>
+      <th scope="col">Notes</th>
+    </tr>
+  </thead>
   <% @customers.each do |customer| %>
-  <tr>
-    <td><%= "#{customer.first_name} #{customer.last_name}" %></td>
-    <td><%= customer.phone %></td>
-    <td><%= customer.email %></td>
-    <td><%= customer.note %></td>
-  </tr>
+    <tr>
+      <td><%= "#{customer.first_name} #{customer.last_name}" %></td>
+      <td><%= customer.phone %></td>
+      <td><%= customer.email %></td>
+      <td><%= customer.order_count %></td>
+      <td><%= customer.note %></td>
+    </tr>
   <% end %>
 </table>
