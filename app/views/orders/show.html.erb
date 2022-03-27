@@ -1,0 +1,64 @@
+<h1>Order Details</h1>
+
+<table class="table">
+    <tr>
+      <th scope="col">Customer</th>
+      <td><%= @order.customer.full_name %></td>
+    </tr>
+    <tr>
+      <th scope="col">Contact</th>
+      <td><%= @order.customer.phone ? @order.customer.phone : @order.customer.email %></td>
+    </tr>
+    <tr>
+      <th scope="col">Date Ordered</th>
+      <td><%= @order.created_at.to_formatted_s(:long) %></td>
+    </tr>
+    <tr>
+      <th scope="col">Date Confirmed</th>
+      <td><%= @order.confirmed_at.to_formatted_s(:long) %></td>
+    </tr>
+    <tr>
+      <th scope="col">Pickup Date</th>
+      <td><%= @order.pickup_at.to_formatted_s(:long) %></td>
+    </tr>
+    <tr>
+      <th scope="col">Date Completed</th>
+      <td><%= @order.completed_at %></td>
+    </tr>
+    <tr>
+      <th scope="col">Delivery</th>
+      <td><%= @order.delivery ? "Yes" : "No" %></td>
+    </tr>
+    <tr>
+      <th scope="col">Delivery Charge</th>
+      <td><%= @order.delivery ? @order.delivery.delivery_charge : 0 %></td>
+    </tr>
+    <tr>
+      <th scope="col">Status</th>
+      <td><%= @order.status %></td>
+    </tr>
+    <tr>
+      <th scope="col">Total</th>
+      <td><%= @order.total_price %></td>
+    </tr>
+    <tr>
+      <th scope="col">Payment</th>
+      <td><%= @order.payment_received %></td>
+    </tr>
+    <tr>
+      <th scope="col">Payment Type</th>
+      <td><%= @order.payment_type %></td>
+    </tr>
+    <tr>
+      <th scope="col">Payment Holder</th>
+      <td><%= @order.payment_holder %></td>
+    </tr>
+    <tr>
+      <th scope="col">Notes</th>
+      <td><%= @order.notes %></td>
+    </tr>
+    <tr>
+    </tr>
+</table>
+<%= link_to "Edit Order", edit_order_path(@order), class: "btn btn-primary" %>
+<%= link_to "View All Orders", "/orders", class: "btn btn-primary" %>

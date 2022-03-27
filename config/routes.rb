@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   get "/customers/:id/edit", to: "customers#edit", as: "edit_customer"
   patch "/customers/:id", to: "customers#update"
 
-  get "/orders", to: "orders#index"
+  get "/orders", to: "orders#index", as: "orders"
   get "/orders/new", to: "orders#new"
+  get "/orders/:id", to: "orders#show", as: "order"
   post "/orders/:id/new", to: "orders#new"
-  post "/orders/:id/edit", to: "orders#edit"
+  post "/orders/:id/edit", to: "orders#edit", as: "edit_order"
 end
