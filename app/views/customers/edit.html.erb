@@ -1,0 +1,23 @@
+<h1>Edit Customer</h1>
+
+<%= form_with model: @customer, url: customer_path(@customer), method: :patch, local: true do |f| %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Notes</th>
+    </tr>
+  </thead>
+  <tr>
+    <td><%= f.text_field :first_name%></td>
+    <td><%= f.text_field :last_name%></td>
+    <td><%= f.text_field :phone %></td>
+    <td><%= f.text_field :email %></td>
+    <td><%= f.text_field :note %></td>
+  </tr>
+</table>
+<%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>
