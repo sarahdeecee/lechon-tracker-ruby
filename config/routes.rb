@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get "/customers/new", to: "customers#new"
 
   post '/customers' => 'customers#create'
-  get "/customers/:id", to: "customers#new"
-  get "/customers/:id/edit", to: "customers#new"
+  get "/customers/:id", to: "customers#show"
+  get "/customers/:id/edit", to: "customers#edit", as: "edit_customer"
   get "/orders", to: "orders#index"
   get "/orders/new", to: "orders#new"
   post "/orders/:id/new", to: "orders#new"

@@ -8,6 +8,7 @@
       <th scope="col">Email</th>
       <th scope="col">Orders</th>
       <th scope="col">Notes</th>
+      <th scope="col">Edit</th>
     </tr>
   </thead>
   <% @customers.each do |customer| %>
@@ -17,6 +18,7 @@
       <td><%= customer.email %></td>
       <td><%= customer.order_count %></td>
       <td><%= customer.note %></td>
+      <td><button class="btn btn-primary">Edit</button></td>
     </tr>
   <% end %>
 </table>
