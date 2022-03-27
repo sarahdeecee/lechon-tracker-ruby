@@ -18,7 +18,7 @@
   <% @orders.each do |order| %>
   <tr>
     <td><%= "#{order.customer.first_name} #{order.customer.last_name}" %></td>
-    <td><%= order.customer.phone %><br /><%= order.customer.email %></td>
+    <td><%= order.customer.phone_formatted %><br /><%= order.customer.email %></td>
     <td><%= order.created_at.to_formatted_s(:long) %></td>
     <td><%= order.confirmed_at.to_formatted_s(:long) %></td>
     <td><%= order.pickup_at.to_formatted_s(:long) %></td>

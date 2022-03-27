@@ -7,4 +7,7 @@ class Customer < ApplicationRecord
   def order_count
     Order.where(:customer_id => self.id).count
   end
+  def phone_formatted
+    ActiveSupport::NumberHelper.number_to_phone(self.phone)
+  end
 end

@@ -7,6 +7,14 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
+  def edit
+    @order = Order.find(params[:id])
+    @statuses = ["Pending order", "Ordered", "Completed"]
+    @payment_types = ["Cash", "E-transfer", "Other"]
+    @payment_received_types = ['Pending', 'Partial', 'Received']
+    @payment_holders = Deliverer.pluck(:name).unshift(Order.find(params[:id]).payment_holder)
+  end
+
   def new
     @order = Order.new
     @lechon = Lechon.new

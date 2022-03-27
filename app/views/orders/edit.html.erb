@@ -1,0 +1,83 @@
+<h1>Edit Details</h1>
+
+<%= form_with model: @order, url: order_path(@order), method: :patch, local: true do |f| %>
+<table class="table">
+    <tr>
+      <th scope="col">Customer</th>
+      <td><%= @order.customer.full_name %></td>
+    </tr>
+    <tr>
+      <th scope="col">Phone</th>
+      <td><%= @order.customer.phone %></td>
+    </tr>
+    <tr>
+      <th scope="col">Email</th>
+      <td><%= @order.customer.email %></td>
+    </tr>
+    <tr>
+      <th scope="col">Date Ordered</th>
+      <td><%= @order.created_at.to_formatted_s(:long) %></td>
+    </tr>
+    <tr>
+      <th scope="col">Date Confirmed</th>
+      <td><%= f.datetime_local_field :confirmed_at, {class: 'form-control'} %></td>
+    </tr>
+    <tr>
+      <th scope="col">Pickup Date</th>
+      <td><%= f.datetime_local_field :pickup_at, {class: 'form-control'} %></td>
+    </tr>
+    <tr>
+      <th scope="col">Date Completed</th>
+      <td><%= f.datetime_local_field :completed_at, {class: 'form-control'} %></td>
+    </tr>
+    <tr>
+      <th scope="col">Delivery</th>
+      <td><%= radio_button_tag(:delivery, true) %>
+      <%= label_tag(:delivery_true, "Yes") %>
+      <%= radio_button_tag(:delivery, false) %>
+      <%= label_tag(:delivery_false, "No") %></td>
+    </tr>
+    <tr>
+      <th scope="col">Delivery Charge</th>
+      <td><%= @order.delivery ? @order.delivery.delivery_charge : 0 %></td>
+    </tr>
+    <tr>
+      <th scope="col">Status</th>
+      <td>
+        <div class="dropdown">
+        <%= f.select(:status, @statuses, {}, class: "form-control") %></td>
+      </div>
+    </tr>
+    <tr>
+      <th scope="col">Payment</th>
+      <td>
+        <div class="dropdown">
+        <%= f.select(:payment_received, @payment_received_types, {}, class: 'dropdown-toggle form-control') %></td>
+      </div>
+    </tr>
+    <tr>
+      <th scope="col">Payment Type</th>
+      <td>
+        <div class="dropdown">
+        <%= f.select(:payment_type, @payment_types, {}, class: 'dropdown-toggle form-control') %></td>
+      </div>
+    </tr>
+    <tr>
+      <th scope="col">Payment Holder</th>
+      <td>
+        <div class="dropdown">
+        <%= f.select(:payment_holder, @payment_holders, {}, class: 'dropdown-toggle form-control') %></td>
+      </div>
+    </tr>
+    <tr>
+      <th scope="col">Total</th>
+      <td><%= @order.total_price %></td>
+    </tr>
+    <tr>
+    <th scope="col">Notes</th>
+      <td><%= f.text_field :notes, class: 'form-control' %></td>
+    </tr>
+</table>
+<%= f.submit "Update Order", class: "btn btn-primary" %>
+<%= link_to "Cancel", "/orders", class: "btn btn-primary" %>
+<% end %>
