@@ -85,7 +85,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_26_215838) do
     t.datetime "pickup_at", precision: nil
     t.datetime "completed_at", precision: nil
     t.boolean "completed", default: false
-    t.boolean "delivery", default: false
     t.string "status", default: "Pending"
     t.integer "total_price"
     t.string "payment_received", default: "Pending"

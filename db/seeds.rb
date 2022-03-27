@@ -32,14 +32,14 @@ Oven.create(details: 'Large oven', created_at: 14.days.ago, updated_at: 7.days.a
 puts "Created #{Oven.count} ovens"
 
 # Order seeds
-Order.create(customer_id: 1, confirmed_at: 1.days.ago, pickup_at: 7.days.from_now, delivery: true, status: 'Pending order', total_price: 200.00, payment_received: 'Pending', payment_type: 'Cash', created_at: 5.days.ago, updated_at: 5.days.ago)
-Order.create(customer_id: 2, confirmed_at: 1.days.ago, pickup_at: 7.days.from_now, delivery: true, status: 'Pending order', total_price: 200.00, payment_received: 'Pending', payment_type: 'Cash', created_at: 5.days.ago, updated_at: 5.days.ago)
+Order.create(customer_id: 1, confirmed_at: 1.days.ago, pickup_at: 7.days.from_now, status: 'Pending order', total_price: 200.00, payment_received: 'Pending', payment_type: 'Cash', created_at: 5.days.ago, updated_at: 5.days.ago)
+Order.create(customer_id: 2, confirmed_at: 1.days.ago, pickup_at: 7.days.from_now, status: 'Pending order', total_price: 200.00, payment_received: 'Pending', payment_type: 'Cash', created_at: 5.days.ago, updated_at: 5.days.ago)
 Order.create(customer_id: 3, confirmed_at: 1.days.ago, pickup_at: 7.days.from_now, status: 'Pending order', total_price: 200.00, payment_received: 'Pending', payment_type: 'Cash', created_at: 5.days.ago, updated_at: 5.days.ago)
 puts "Created #{Order.count} orders"
 
 # Delivery seeds
-Delivery.create(order_id: 1, deliverer_id: 1, location: 'Toronto', address: '12 Street Ave', created_at: 14.days.ago, updated_at: 7.days.ago)
-Delivery.create(order_id: 2, deliverer_id: 1, location: 'Toronto', address: '12 Street Ave', created_at: 14.days.ago, updated_at: 7.days.ago)
+Delivery.create(order_id: 1, deliverer_id: 1, delivery_charge: 25.00, location: 'Toronto', address: '12 Street Ave', created_at: 14.days.ago, updated_at: 7.days.ago)
+Delivery.create(order_id: 2, deliverer_id: 1, delivery_charge: 25.00, location: 'Toronto', address: '12 Street Ave', created_at: 14.days.ago, updated_at: 7.days.ago)
 puts "Created #{Delivery.count} deliveries"
 
 # Lechon options

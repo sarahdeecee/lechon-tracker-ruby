@@ -28,7 +28,7 @@
     <td><%= order.pickup_at %></td>
     <td><%= order.completed_at %></td>
     <td><%= order.delivery ? "Yes" : "No" %></td>
-    <td><%= order.delivery_charge %></td>
+    <td><%= order.delivery ? order.delivery.delivery_charge : 0 %></td>
     <td><%= order.status %></td>
     <td><%= order.total_price %></td>
     <td><%= order.payment_received %></td>
