@@ -7,7 +7,7 @@
     </tr>
     <tr>
       <th scope="col">Contact</th>
-      <td><%= @order.customer.phone ? @order.customer.phone : @order.customer.email %></td>
+      <td><%= @order.customer.phone_formatted %>, <%= @order.customer.email %></td>
     </tr>
     <tr>
       <th scope="col">Date Ordered</th>

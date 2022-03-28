@@ -1,4 +1,4 @@
-<h1>Edit Details</h1>
+<h1>Edit Order</h1>
 
 <%= form_with model: @order, url: order_path(@order), method: :patch, local: true do |f| %>
 <table class="table">
@@ -8,7 +8,7 @@
     </tr>
     <tr>
       <th scope="col">Phone</th>
-      <td><%= @order.customer.phone %></td>
+      <td><%= @order.customer.phone_formatted %></td>
     </tr>
     <tr>
       <th scope="col">Email</th>
@@ -32,13 +32,16 @@
     </tr>
     <tr>
       <th scope="col">Delivery</th>
-      <td><%= radio_button_tag(:delivery, true) %>
-      <%= label_tag(:delivery_true, "Yes") %>
-      <%= radio_button_tag(:delivery, false) %>
-      <%= label_tag(:delivery_false, "No") %></td>
+      <td>
+        <%= f.radio_button :delivery, 'Yes', :value => true, :checked => (@order.delivery ? 'checked' : '')  %>
+        <%= f.label :delivery, "Yes" %>
+        <%= f.radio_button :delivery, 'No', :value => false, :checked => (!@order.delivery ? 'checked' : '') %>
+        <%= f.label :delivery, "No" %>
+      </td>
     </tr>
     <tr>
       <th scope="col">Delivery Charge</th>
+      <!--td><%= @order.delivery ? (f.text_field @order.delivery.delivery_charge, class: 'form-control') : 0 %></td-->
       <td><%= @order.delivery ? @order.delivery.delivery_charge : 0 %></td>
     </tr>
     <tr>
@@ -79,5 +82,6 @@
     </tr>
 </table>
 <%= f.submit "Update Order", class: "btn btn-primary" %>
+<%= link_to "Delete Order", "/orders", class: "btn btn-danger" %>
 <%= link_to "Cancel", "/orders", class: "btn btn-primary" %>
 <% end %>
