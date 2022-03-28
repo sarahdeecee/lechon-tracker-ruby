@@ -11,6 +11,7 @@
       <th scope="col">Edit</th>
     </tr>
   </thead>
+  <%= turbo_frame_tag "post" do %>
   <% @customers.each do |customer| %>
     <tr>
       <td><%= "#{customer.first_name} #{customer.last_name}" %></td>
@@ -26,5 +27,6 @@
           }, class: "btn btn-danger" %>
       </td>
     </tr>
+  <% end %>
   <% end %>
 </table>

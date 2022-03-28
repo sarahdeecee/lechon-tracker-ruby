@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(
-      :first_name, :last_name, 
-      lechons_attributes: [:supplier_id, :order_id, :size, :_destroy])
+      :first_name, :last_name, :pickup_at
+    )
   end
 end

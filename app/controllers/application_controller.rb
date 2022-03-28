@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
+
   private
+
   #cart management
   def cart
     @cart ||= cookies[:cart].present? ? JSON.parse(cookies[:cart]) : {}
@@ -7,12 +10,14 @@ class ApplicationController < ActionController::Base
   helper_method :cart
 
   def enhanced_cart
-    @enhanced_cart ||= Product.where(id: cart.keys).map {|product| { product:product, quantity: cart[product.id.to_s] } }
+    @enhanced_cart ||= LechonOption.where(id: cart.keys).map {|product|
+      { product: product, quantity: cart[product.id.to_s] }
+    }
   end
   helper_method :enhanced_cart
 
   def cart_subtotal_cents
-    enhanced_cart.map {|entry| entry[:product].price_cents * entry[:quantity]}.sum
+    enhanced_cart.map {|entry| entry[:product].sell_price * entry[:quantity]}.sum
   end
   helper_method :cart_subtotal_cents
 

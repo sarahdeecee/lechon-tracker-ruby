@@ -41,6 +41,11 @@
               <li><a class="dropdown-item" href="/customers/new">Customer</a></li>
             </ul>
           </li>
+          <li>
+          <%= link_to cart_path do %>
+            My Cart (<%= cart.size %>)
+          <% end %>
+        </li>
         </ul>
       </div>
     </div>

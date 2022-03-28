@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   root "articles#index"
   get "/articles", to: "articles#index"
 
+  resource :cart, only: [:show] do
+    post   :add_item
+    post   :remove_item
+  end
+
   get "/customers", to: "customers#index", as: "customers"
   get "/customers/new", to: "customers#new"
   post "/customers" => "customers#create"

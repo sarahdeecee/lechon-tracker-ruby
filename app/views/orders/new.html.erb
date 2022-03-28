@@ -15,12 +15,12 @@
     <%= label_tag(:delivery_false, "No") %>
   </div>
 
-  <%= render 'lechonbutton', lechonoptions: @lechonoptions, form: form %>
+  <%= render 'lechonbutton', form: form %>
   <%= render 'cart' %>
 
   <div>
     <%= form.label 'Customer', {class: 'form-label'} %><br />
-    <%= select_tag(:id, options_from_collection_for_select(@customers, 'id', 'full_name'), {class: 'form-control'}) %>
+    <%= select_tag(:id, options_from_collection_for_select(@customers || Customer.all, 'id', 'full_name'), {class: 'form-control'}) %>
   </div>
   <div>
     <%= form.label :first_name, {class: 'form-label'} %><br>

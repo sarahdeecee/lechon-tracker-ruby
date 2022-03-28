@@ -1,13 +1,19 @@
 <h2>Add Lechon</h2>
 <div class="row">
-  <% @lechonoptions.each do |option| %>
+  <% LechonOption.all.each do |option| %>
   <div class="col-sm-4">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title"><%= option.size.capitalize() %></h5>
         <p class="card-text"><%= option.description %></p>
         <p class="card-text"><%= "$#{option.sell_price}.00" %></p>
-        <a href="#" class="btn btn-primary">Add</a>
+        <p class="card-text"><%= option.id %></p>
+        <%= button_to add_item_cart_path(lechon_options_id: option.id), class: 'btn btn-primary' , method: :post do %>
+          Add
+        <% end %>
+        <%= button_to remove_item_cart_path(lechon_options_id: option.id), class: 'btn btn-danger' , method: :post do %>
+          Remove
+        <% end %>
       </div>
     </div>
   </div>

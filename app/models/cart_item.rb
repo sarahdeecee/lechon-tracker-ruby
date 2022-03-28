@@ -1,4 +1,4 @@
 class CartItem < ApplicationRecord
   belongs_to :order
-  has_many :lechons
+  belongs_to :lechonoptions
 end
