@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_26_215838) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_28_185250) do
   create_table "cart_items", force: :cascade do |t|
     t.integer "order_id", null: false
-    t.integer "lechon_id", null: false
     t.integer "quantity"
     t.integer "item_price_cents"
     t.integer "total_price_cents"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["lechon_id"], name: "index_cart_items_on_lechon_id"
+    t.integer "lechon_option_id"
+    t.index ["lechon_option_id"], name: "index_cart_items_on_lechon_option_id"
     t.index ["order_id"], name: "index_cart_items_on_order_id"
   end
 
@@ -110,7 +110,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_26_215838) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "cart_items", "lechons"
+  add_foreign_key "cart_items", "lechon_options"
   add_foreign_key "cart_items", "orders"
   add_foreign_key "deliveries", "deliverers"
   add_foreign_key "deliveries", "orders"
