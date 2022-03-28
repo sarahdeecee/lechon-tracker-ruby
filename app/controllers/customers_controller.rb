@@ -35,6 +35,13 @@ class CustomersController < ApplicationController
     end
   end
 
+  def destroy
+    @customer = Customer.find(params[:id])
+    @customer.destroy
+
+    redirect_to '/customers', status: :see_other
+  end
+
   private
   
   def customer_params

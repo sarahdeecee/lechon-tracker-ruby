@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post "/customers" => "customers#create"
   get "/customers/:id", to: "customers#show", as: "customer"
   get "/customers/:id/edit", to: "customers#edit", as: "edit_customer"
+  delete "/customers/:id", to: "customers#destroy", as: "destroy_customer"
   patch "/customers/:id", to: "customers#update"
   
   get "/orders", to: "orders#index", as: "orders"
@@ -17,5 +18,6 @@ Rails.application.routes.draw do
   post "/orders" => "orders#create"
   get "/orders/:id", to: "orders#show", as: "order"
   get "/orders/:id/edit", to: "orders#edit", as: "edit_order"
+  delete "/orders/:id", to: "orders#destroy", as: "destroy_order"
   patch "/orders/:id", to: "orders#update"
 end
