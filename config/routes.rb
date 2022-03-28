@@ -18,4 +18,9 @@ Rails.application.routes.draw do
   get "/orders/:id", to: "orders#show", as: "order"
   get "/orders/:id/edit", to: "orders#edit", as: "edit_order"
   patch "/orders/:id", to: "orders#update"
+
+  resource :cart, only: [:show] do
+    post   :add_item
+    post   :remove_item
+  end
 end
