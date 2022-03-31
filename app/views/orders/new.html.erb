@@ -1,51 +1,22 @@
 <h1>New Order</h1>
 
-<%= form_with model: @order do |form| %>
+<%= form_with model: @order, method: :post do |form| %>
 
+  <div>
+    <%= form.label 'Customer', {class: 'form-label'} %><br>
+    <%= select_tag(:customer_id, options_from_collection_for_select(@customers, :id, :full_name), {class: 'form-control'}) %>
+  </div>
   <div>
     <%= form.label 'Requested time', {class: 'form-label'} %><br>
     <%= form.datetime_local_field :pickup_at, {class: 'form-control'} %>
   </div>
-    
+  
   <div>
-    <%= form.label 'Delivery required?', {class: 'form-label'} %><br>
-    <%= radio_button_tag(:delivery, true) %>
-    <%= label_tag(:delivery_true, "Yes") %>
-    <%= radio_button_tag(:delivery, false) %>
-    <%= label_tag(:delivery_false, "No") %>
+    <%= form.label 'Notes', {class: 'form-label'} %><br />
+    <%= form.text_field :notes, {class: 'form-control'} %>     
   </div>
 
-  <section id="add-lechon">
-    <h2>Add Lechon</h2>
-    <div class="row">
-      <div>
-        <%= button_to add_item_cart_path(lechon_options_id: 1), class: 'btn btn-primary' , method: :post do %>
-          Add
-        <% end %>
-      </div>
-      <% if @lechonoptions %>
-        <% @lechonoptions.each do |option| %>
-          <%= render 'lechonbutton', option: option, form: form %>
-        <% end %>
-      <% end %>
-    </div>
-  </section>
-  <%= render 'cart' %>
-
   <div>
-    <%= form.label 'Customer', {class: 'form-label'} %><br />
-    <%= select_tag(:id, options_from_collection_for_select(@customers || Customer.all, 'id', 'full_name'), {class: 'form-control'}) %>
-  </div>
-  <!--div>
-    <%= form.label :first_name, {class: 'form-label'} %><br>
-    <%= form.text_field :first_name, {class: 'form-control'} %>
-  </div>
-  <div>
-    <%= form.label :last_name, {class: 'form-label'} %><br>
-    <%= form.text_field :last_name, {class: 'form-control'} %>
-  </div-->
-
-  <div>
-    <%= form.submit "Create Order", class: 'btn btn-primary' %>
+    <%= form.button "Create Order", class: 'btn btn-primary' %>
   </div>
 <% end %>
