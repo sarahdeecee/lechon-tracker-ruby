@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    if @order.update(params.require(:order).permit(:confirmed_at, :pickup_at, :completed_at, :status, :payment_status, :payment_type, :payment_holder, :payment_received, :notes))
+    if @order.update(order_params)
       flash[:notice] = "Order successfully updated"
       redirect_to order_url(@order)
     else
@@ -36,7 +36,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    puts "---------> Order params: #{order_params}"
     @order = Order.new(
       customer_id: params[:customer_id],
       pickup_at: params[:order][:pickup_at],
@@ -62,7 +61,7 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:pickup_at, :notes)
+    params.require(:order).permit(:confirmed_at, :pickup_at, :completed_at, :status, :payment_status, :payment_type, :payment_holder, :payment_received, :notes)
   end
 
   def empty_cart!
