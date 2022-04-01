@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
 
   def edit
     @order = Order.find(params[:id])
+    # @status_types = 
     @statuses = ["Pending order", "Ordered", "Completed"]
     @payment_types = ["Cash", "E-transfer", "Other"]
     @payment_received_types = ['Pending', 'Partial', 'Received']
@@ -17,7 +18,7 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    if @order.update(params.require(:order).permit(:confirmed_at, :pickup_at, :completed_at, :status, :payment_status, :payment_type, :payment_holder, :notes))
+    if @order.update(params.require(:order).permit(:confirmed_at, :pickup_at, :completed_at, :status, :payment_status, :payment_type, :payment_holder, :payment_received, :notes))
       flash[:notice] = "Order successfully updated"
       redirect_to order_url(@order)
     else
