@@ -1,0 +1,39 @@
+<h1>Deliveries</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Customer</th>
+      <th scope="col">Contact</th>
+      <th scope="col">Date Ordered</th>
+      <th scope="col">Date Confirmed</th>
+      <th scope="col">Pickup Date</th>
+      <th scope="col">Delivery</th>
+      <th scope="col">Status</th>
+      <th scope="col">Total</th>
+      <th scope="col">Notes</th>
+      <th scope="col">Details</th>
+    </tr>
+  </thead>
+  <% if @deliveries %>
+    <% @deliveries.each do |delivery| %>
+    <tr>
+      <td><%= delivery.order.customer.full_name %></td>
+      <td><%= delivery.order.customer.phone_formatted %></td>
+      <td><%= delivery.order.created_at.to_formatted_s(:long) %></td>
+      <td><%= delivery.scheduled_at ? delivery.scheduled_at.to_formatted_s(:long) : '' %></td>
+      <td><%= delivery.arrival_at ? delivery.arrival_at.to_formatted_s(:long) : '' %></td>
+      <td><%= delivery.location %></td>
+      <td><%= delivery.address %></td>
+      <td><%= delivery.delivery_charge %></td>
+      <td><%= delivery.order.total_price %></td>
+      <td>
+        <%= link_to "Edit", "/deliveries", class: "btn btn-primary" %>
+        <%= link_to "Delete", "/deliveries", class: "btn btn-danger" %>
+      </td>
+    </tr>
+  <% end %>
+  <% else %>
+    <p>No deliveries</p>
+  <% end %>
+</table>

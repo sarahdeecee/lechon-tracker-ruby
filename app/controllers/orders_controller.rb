@@ -25,13 +25,15 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    if params[:order][:delivery]
-      @order.delivery = Delivery.new
-    end
     if @order.save
-      redirect_to '/orders', notice: 'Account registered!'
+      if params[:order][:delivery]
+        @delivery = Delivery.create(order_id: @order.id)
+      end
+      flash[:notice] = 'Account registered!'
+      redirect_to '/orders'
     else
-      redirect_to '/orders', notice: 'Failed'
+      flash[:notice] = 'Failed'
+      redirect_to '/orders'
     end
 
     # if order.valid?
@@ -43,7 +45,7 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:pickup_at, :notes, :customer_id)
+    params.require(:order).permit(:pickup_at, :notes)
     params.permit(:customer_id)
   end
 
