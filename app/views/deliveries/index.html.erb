@@ -22,7 +22,7 @@
       <td><%= delivery.order.customer.full_name %></td>
       <td><%= delivery.order.customer.phone_formatted %></td>
       <td><%= delivery.order.created_at.to_formatted_s(:long) %></td>
-      <td><%= delivery.scheduled_at ? delivery.scheduled_at.to_formatted_s(:long) : '' %></td>
+      <td><%= delivery.order.pickup_at ? delivery.order.pickup_at.to_formatted_s(:long) : '' %></td>
       <td><%= delivery.arrival_at ? delivery.arrival_at.to_formatted_s(:long) : '' %></td>
       <td><%= delivery.location %></td>
       <td><%= delivery.address %></td>

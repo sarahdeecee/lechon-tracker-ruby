@@ -24,9 +24,14 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
+    puts "---------> Order params: #{order_params}"
+    @order = Order.new(
+      customer_id: params[:customer_id],
+      pickup_at: params[:order][:pickup_at],
+      notes: params[:order][:notes]
+    )
     if @order.save
-      if params[:order][:delivery]
+      if params[:delivery] == "true"
         @delivery = Delivery.create(order_id: @order.id)
       end
       flash[:notice] = 'Account registered!'
@@ -46,7 +51,6 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:pickup_at, :notes)
-    params.permit(:customer_id)
   end
 
   def empty_cart!
