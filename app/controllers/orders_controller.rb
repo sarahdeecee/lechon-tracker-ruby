@@ -25,6 +25,9 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    if params[:order][:delivery]
+      @order.delivery = Delivery.new
+    end
     if @order.save
       redirect_to '/orders', notice: 'Account registered!'
     else

@@ -42,7 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_28_185250) do
 
   create_table "deliveries", force: :cascade do |t|
     t.integer "order_id", null: false
-    t.integer "deliverer_id", null: false
+    t.integer "deliverer_id"
     t.integer "delivery_charge"
     t.datetime "scheduled_at", precision: nil
     t.datetime "arrival_at", precision: nil

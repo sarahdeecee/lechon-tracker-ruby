@@ -21,6 +21,7 @@ Supplier.create(company_name: 'Supplier Corp 3', address: '131 Fake St. Toronto'
 puts "Created #{Supplier.count} suppliers"
 
 # Deliverer seeds
+Deliverer.create(name: 'Pending', created_at: 14.days.ago, updated_at: 7.days.ago)
 Deliverer.create(name: 'Mike', phone: '1234567898', created_at: 14.days.ago, updated_at: 7.days.ago)
 Deliverer.create(name: 'Bella', phone: '1234567897', created_at: 14.days.ago, updated_at: 7.days.ago)
 Deliverer.create(name: 'Sarah', phone: '1234567896', created_at: 14.days.ago, updated_at: 7.days.ago)
@@ -40,6 +41,7 @@ puts "Created #{Order.count} orders"
 # Delivery seeds
 Delivery.create(order_id: 1, deliverer_id: 1, delivery_charge: 25.00, location: 'Toronto', address: '12 Street Ave', created_at: 14.days.ago, updated_at: 7.days.ago)
 Delivery.create(order_id: 2, deliverer_id: 1, delivery_charge: 25.00, location: 'Toronto', address: '12 Street Ave', created_at: 14.days.ago, updated_at: 7.days.ago)
+Delivery.create(order_id: 3, created_at: 14.days.ago, updated_at: 7.days.ago)
 puts "Created #{Delivery.count} deliveries"
 
 # Lechon options

@@ -10,7 +10,13 @@
     <%= form.label 'Requested time', {class: 'form-label'} %><br>
     <%= form.datetime_local_field :pickup_at, {class: 'form-control'} %>
   </div>
-  
+  <div>
+    <%= form.label 'Delivery required?', {class: 'form-label'} %><br>
+    <%= radio_button_tag(:delivery, true) %>
+    <%= label_tag(:delivery_true, "Yes") %>
+    <%= radio_button_tag(:delivery, false) %>
+    <%= label_tag(:delivery_false, "No") %>
+  </div>
   <div>
     <%= form.label 'Notes', {class: 'form-label'} %><br />
     <%= form.text_field :notes, {class: 'form-control'} %>     
