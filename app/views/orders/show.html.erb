@@ -11,15 +11,15 @@
     </tr>
     <tr>
       <th scope="col">Date Ordered</th>
-      <td><%= @order.created_at.to_formatted_s(:long) %></td>
+      <td><%= @order.created_at ? @order.created_at.to_formatted_s(:long) : '' %></td>
     </tr>
     <tr>
       <th scope="col">Date Confirmed</th>
-      <td><%= @order.confirmed_at.to_formatted_s(:long) %></td>
+      <td><%= @order.confirmed_at ? @order.confirmed_at.to_formatted_s(:long) : '' %></td>
     </tr>
     <tr>
       <th scope="col">Pickup Date</th>
-      <td><%= @order.pickup_at.to_formatted_s(:long) %></td>
+      <td><%= @order.pickup_at ? @order.pickup_at.to_formatted_s(:long) : '' %></td>
     </tr>
     <tr>
       <th scope="col">Date Completed</th>

@@ -15,6 +15,17 @@ class OrdersController < ApplicationController
     @payment_holders = Deliverer.pluck(:name).unshift(Order.find(params[:id]).payment_holder)
   end
 
+  def update
+    @order = Order.find(params[:id])
+    if @order.update(params.require(:order).permit(:confirmed_at, :pickup_at, :completed_at, :status, :payment_status, :payment_type, :payment_holder, :notes))
+      flash[:notice] = "Order successfully updated"
+      redirect_to order_url(@order)
+    else
+      flash.now[:error] = "Order update failed"
+      render :edit
+    end
+  end
+
   def new
     @order = Order.new
     @lechon = Lechon.new

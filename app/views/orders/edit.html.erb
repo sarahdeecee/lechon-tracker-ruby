@@ -33,9 +33,9 @@
     <tr>
       <th scope="col">Delivery</th>
       <td>
-        <%= f.radio_button :delivery, 'Yes', :value => true, :checked => (@order.delivery ? 'checked' : '')  %>
+        <%= f.radio_button :delivery, true, :value => true, :checked => (@order.delivery ? 'checked' : '')  %>
         <%= f.label :delivery, "Yes" %>
-        <%= f.radio_button :delivery, 'No', :value => false, :checked => (!@order.delivery ? 'checked' : '') %>
+        <%= f.radio_button :delivery, false, :value => false, :checked => (!@order.delivery ? 'checked' : '') %>
         <%= f.label :delivery, "No" %>
       </td>
     </tr>
