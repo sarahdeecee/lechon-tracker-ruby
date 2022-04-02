@@ -22,5 +22,5 @@ I aim to gain a more thorough understanding of Ruby, Rails, and creating a proje
 - [Planning file](./planning/PLANNING.md)
 - [Schema file](./db/schema.rb)
 ## Getting Started
-Type `rails server` in terminal to start the server.
+Type `rails server -b 0.0.0.0` in terminal to start the server.
 Open [`localhost:3000`](http://localhost:3000) in the browser.
