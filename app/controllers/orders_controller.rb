@@ -60,8 +60,6 @@ class OrdersController < ApplicationController
 
       # add lechon
       enhanced_cart.each do |entry|
-        puts entry
-        puts entry[:product][:size]
         entry[:quantity].times {
           @order.lechons.create(
             size: entry[:product][:size],
