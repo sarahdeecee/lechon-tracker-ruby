@@ -30,7 +30,10 @@
         <td><%= lechon.cook_end %></td>
         <td>
         <%= link_to "Edit", edit_lechon_path(lechon.id), class: "btn btn-primary disabled" %>
-        <%= link_to "Delete", edit_lechon_path(lechon.id), class: "btn btn-danger disabled" %>
+        <%= link_to "Delete", lechon_path(lechon.id), data: {
+          turbo_method: :delete,
+          turbo_confirm: "Are you sure?"
+          }, class: "btn btn-danger" %>
       </tr>
     <% end %>
     </table>
