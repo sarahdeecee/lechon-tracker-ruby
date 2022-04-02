@@ -1,24 +1,26 @@
-# README
+# About Lechon Tracker
+Lechon Tracker is a custom e-commerce application for tracking orders, deliveries, and other data, and creating relevant reports.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Learning Goals
+I aim to gain a more thorough understanding of Ruby, Rails, and creating a project from the ground up through this project.
 
-Things you may want to cover:
+## Stack
 
-* Ruby version
+### Languages
+- Ruby
+- HTML
+- CSS
 
-* System dependencies
+### Frameworks
+- Rails
 
-* Configuration
+### Database
+- SQLite
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Current Progress
+- [Planning file](./planning/PLANNING.md)
+- [Schema file](.app/db/schema.rb)
+## Getting Started
+Type `rails server` in terminal to start the server.
+Open [`localhost:3000`](http://localhost:3000) in the browser.
