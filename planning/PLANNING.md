@@ -1,5 +1,6 @@
 # Pages
-- landing/navigation
+- [ ] landing
+- [x] navigation
 
 ### View
 - [x] customer
