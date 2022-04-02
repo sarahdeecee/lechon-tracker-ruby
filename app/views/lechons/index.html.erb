@@ -1,0 +1,36 @@
+<h1>Lechon</h1>
+<% if @lechons %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Order ID</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Size</th>
+        <th scope="col">Weight</th>
+        <th scope="col">Base Price</th>
+        <th scope="col">Sell Price</th>
+        <th scope="col">Supplier</th>
+        <th scope="col">Ordered</th>
+        <th scope="col">Cook Start</th>
+        <th scope="col">Cook End</th>
+        <th scope="col">Details</th>
+      </tr>
+    </thead>
+    <% @lechons.each do |lechon| %>
+      <tr>
+        <td><%= lechon.order.id %></td>
+        <td><%= lechon.order.customer.full_name %></td>
+        <td><%= lechon.size %></td>
+        <td><%= lechon.weight %></td>
+        <td><%= lechon.base_price %></td>
+        <td><%= lechon.sell_price %></td>
+        <td><%= lechon.supplier.company_name %></td>
+        <td><%= lechon.ordered ? 'Yes' : 'No' %></td>
+        <td><%= lechon.cook_start %></td>
+        <td><%= lechon.cook_end %></td>
+      </tr>
+    <% end %>
+    </table>
+  <% else %>
+    <p>No lechon</p>
+  <% end %>

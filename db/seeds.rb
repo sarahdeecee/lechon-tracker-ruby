@@ -50,4 +50,10 @@ LechonOption.create(size: 'medium', base_price: 150.00, sell_price: 250.00, desc
 LechonOption.create(size: 'large', base_price: 200.00, sell_price: 300.00, description: '85-100lbs', created_at: 4.days.ago, updated_at: 4.days.ago)
 puts "Created #{LechonOption.count} lechon options"
 
+# Lechon
+Lechon.create(size: 'small',  order_id: 1, base_price: 100.00, sell_price: 150.00, weight: 50, supplier_id: 1, created_at: 4.days.ago, updated_at: 4.days.ago)
+Lechon.create(size: 'medium', order_id: 1, base_price: 150.00, sell_price: 250.00, weight: 60, supplier_id: 1, created_at: 4.days.ago, updated_at: 4.days.ago)
+Lechon.create(size: 'large',  order_id: 1, base_price: 200.00, sell_price: 300.00, weight: 70, supplier_id: 1, created_at: 4.days.ago, updated_at: 4.days.ago)
+puts "Created #{Lechon.count} lechon"
+
 puts 'Seeding done.'

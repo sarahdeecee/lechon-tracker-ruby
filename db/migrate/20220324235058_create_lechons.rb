@@ -3,7 +3,8 @@ class CreateLechons < ActiveRecord::Migration[7.0]
     create_table :lechons do |t|
       t.references :supplier, foreign_key: true
       t.references :oven, foreign_key: true
-      t.integer :size
+      t.references :order, null: false, foreign_key: true
+      t.string :size
       t.integer :base_price
       t.integer :sell_price
       t.integer :weight

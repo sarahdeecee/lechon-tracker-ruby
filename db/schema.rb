@@ -66,7 +66,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_02_023535) do
   create_table "lechons", force: :cascade do |t|
     t.integer "supplier_id"
     t.integer "oven_id"
-    t.integer "size"
+    t.integer "order_id", null: false
+    t.string "size"
     t.integer "base_price"
     t.integer "sell_price"
     t.integer "weight"
@@ -75,6 +76,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_02_023535) do
     t.datetime "cook_end", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_lechons_on_order_id"
     t.index ["oven_id"], name: "index_lechons_on_oven_id"
     t.index ["supplier_id"], name: "index_lechons_on_supplier_id"
   end
@@ -113,6 +115,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_02_023535) do
   add_foreign_key "cart_items", "orders"
   add_foreign_key "deliveries", "deliverers"
   add_foreign_key "deliveries", "orders"
+  add_foreign_key "lechons", "orders"
   add_foreign_key "lechons", "ovens"
   add_foreign_key "lechons", "suppliers"
   add_foreign_key "orders", "customers"

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     post   :remove_item
   end
 
-  resources :orders
+  resources :orders, :lechons
   
   resources :deliveries, param: :order_id
 
