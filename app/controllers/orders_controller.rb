@@ -9,7 +9,6 @@ class OrdersController < ApplicationController
 
   def edit
     @order = Order.find(params[:id])
-    # @status_types = 
     @statuses = ["Pending order", "Ordered", "Completed"]
     @payment_types = ["Cash", "E-transfer", "Other"]
     @payment_received_types = ['Pending', 'Partial', 'Received']

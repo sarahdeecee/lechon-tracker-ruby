@@ -10,6 +10,7 @@
       <th scope="col">Arrival Time</th>
       <th scope="col">Location</th>
       <th scope="col">Address</th>
+      <th scope="col">Deliverer</th>
       <th scope="col">Delivery Charge</th>
       <th scope="col">Total</th>
       <th scope="col">Notes</th>
@@ -26,6 +27,7 @@
       <td><%= delivery.arrival_at ? delivery.arrival_at.to_formatted_s(:long) : '' %></td>
       <td><%= delivery.location %></td>
       <td><%= delivery.address %></td>
+      <td><%= delivery.deliverer ? delivery.deliverer.name : '' %></td>
       <td><%= delivery.delivery_charge %></td>
       <td><%= delivery.order.total_price %></td>
       <td><%= delivery.order.notes %></td>
