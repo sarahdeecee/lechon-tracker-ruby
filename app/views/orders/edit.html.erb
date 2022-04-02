@@ -33,16 +33,20 @@
     <tr>
       <th scope="col">Delivery</th>
       <td>
-        <%= f.radio_button :delivery, true, :value => true, :checked => (@order.delivery ? 'checked' : '')  %>
-        <%= f.label :delivery, "Yes" %>
-        <%= f.radio_button :delivery, false, :value => false, :checked => (!@order.delivery ? 'checked' : '') %>
-        <%= f.label :delivery, "No" %>
+        <%= button_to add_item_cart_path(order_id: @order.id), class: "btn btn-primary #{@order.delivery ? 'disabled' : ''}" , method: :post do %>
+          Add Delivery
+        <% end %>
+
+        <%= link_to "Cancel Delivery", delivery_path(order_id: @order.id), method: :delete, data: {
+          turbo_method: :delete,
+          turbo_confirm: "Are you sure?"
+          }, class: "btn btn-danger #{!@order.delivery ? 'disabled' : ''}" %>
       </td>
     </tr>
     <tr>
       <th scope="col">Delivery Charge</th>
       <!--td><%= @order.delivery ? (f.text_field @order.delivery.delivery_charge, class: 'form-control') : 0 %></td-->
-      <td><%= @order.delivery ? @order.delivery.delivery_charge : 0 %></td>
+      <td><%= @order.delivery ? @order.delivery.delivery_charge : '0' %></td>
     </tr>
     <tr>
       <th scope="col">Status</th>
