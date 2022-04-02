@@ -34,6 +34,17 @@ class OrdersController < ApplicationController
     @customers = Customer.all.order('last_name')
   end
 
+  def destroy
+    @order = Order.find(params[:id])
+    if @order.delivery
+      @delivery = Delivery.find_by(order_id: @order.id)
+      @delivery.destroy
+    end
+    @order.destroy
+
+    redirect_to orders_url, status: :see_other
+  end
+
   def create
     create_order
   end
