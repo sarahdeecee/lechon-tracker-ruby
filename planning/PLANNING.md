@@ -2,20 +2,20 @@
 - landing/navigation
 
 ### Add/Edit
-- customer
-- order
-- lechon
-- deliveries
-- deliverers
-- suppliers
-- ovens
+- [x] customer
+- [x] order
+- [ ] lechon
+- [x] deliveries
+- [ ] deliverers
+- [ ] suppliers
+- [ ] ovens
 
 ### View
 - customers
-  - all
+  - [x] all
   - search
 - orders
-  - all
+  - [x] all
   - search
 - reports
 
