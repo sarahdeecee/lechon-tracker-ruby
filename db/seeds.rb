@@ -33,9 +33,9 @@ Oven.create(details: 'Large oven', created_at: 14.days.ago, updated_at: 7.days.a
 puts "Created #{Oven.count} ovens"
 
 # Order seeds
-Order.create(customer_id: 1, confirmed_at: 1.days.ago, pickup_at: 7.days.from_now, status: 'Pending order', total_price: 200.00, payment_received: 'Pending', payment_type: 'Cash', notes: "Note", created_at: 5.days.ago, updated_at: 5.days.ago)
-Order.create(customer_id: 2, confirmed_at: 1.days.ago, pickup_at: 7.days.from_now, status: 'Pending order', total_price: 200.00, payment_received: 'Pending', payment_type: 'Cash', notes: "Note", created_at: 5.days.ago, updated_at: 5.days.ago)
-Order.create(customer_id: 3, confirmed_at: 1.days.ago, pickup_at: 7.days.from_now, status: 'Pending order', total_price: 200.00, payment_received: 'Pending', payment_type: 'Cash', notes: "Note", created_at: 5.days.ago, updated_at: 5.days.ago)
+Order.create(customer_id: 1, confirmed_at: 1.days.ago, pickup_at: 7.days.from_now, status: 'Pending order', payment_received: 'Pending', payment_type: 'Cash', notes: "Note", created_at: 5.days.ago, updated_at: 5.days.ago)
+Order.create(customer_id: 2, confirmed_at: 1.days.ago, pickup_at: 7.days.from_now, status: 'Pending order', payment_received: 'Pending', payment_type: 'Cash', notes: "Note", created_at: 5.days.ago, updated_at: 5.days.ago)
+Order.create(customer_id: 3, confirmed_at: 1.days.ago, pickup_at: 7.days.from_now, status: 'Pending order', payment_received: 'Pending', payment_type: 'Cash', notes: "Note", created_at: 5.days.ago, updated_at: 5.days.ago)
 puts "Created #{Order.count} orders"
 
 # Delivery seeds

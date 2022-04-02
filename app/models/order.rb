@@ -5,4 +5,8 @@ class Order < ApplicationRecord
   accepts_nested_attributes_for :delivery
 
   validates :customer, presence: true
+
+  def total_price
+    50
+  end
 end

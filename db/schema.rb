@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_28_185250) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_02_023535) do
   create_table "cart_items", force: :cascade do |t|
     t.integer "order_id", null: false
     t.integer "quantity"
@@ -86,7 +86,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_28_185250) do
     t.datetime "completed_at", precision: nil
     t.boolean "completed", default: false
     t.string "status", default: "Pending"
-    t.integer "total_price"
     t.string "payment_received", default: "Pending"
     t.string "payment_type"
     t.string "payment_holder"
