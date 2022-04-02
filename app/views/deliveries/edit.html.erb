@@ -1,5 +1,6 @@
 <h1>Deliveries</h1>
-<%= form_with model: @delivery, url: deliveries_path(@delivery), method: :patch, local: true do |f| %>
+
+<%= form_with model: @delivery, url: delivery_path(@delivery), method: :patch, local: true do |f| %>
   <table class="table">
     <tr>
       <th scope="col">Customer</th>

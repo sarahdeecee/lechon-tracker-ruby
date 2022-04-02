@@ -21,14 +21,6 @@ Rails.application.routes.draw do
   get "/customers/:id/edit", to: "customers#edit", as: "edit_customer"
   delete "/customers/:id", to: "customers#destroy", as: "destroy_customer"
   patch "/customers/:id", to: "customers#update"
-  
-  # get "/orders", to: "orders#index", as: "orders"
-  # get "/orders/new", to: "orders#new"
-  # post "/orders" => "orders#create"
-  # get "/orders/:id", to: "orders#show", as: "order"
-  # get "/orders/:id/edit", to: "orders#edit", as: "edit_order"
-  # delete "/orders/:id", to: "orders#destroy", as: "destroy_order"
-  # patch "/orders/:id", to: "orders#update"
 
   resource :cart, only: [:show] do
     post   :add_item
