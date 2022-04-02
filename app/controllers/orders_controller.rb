@@ -40,7 +40,10 @@ class OrdersController < ApplicationController
       @delivery = Delivery.find_by(order_id: @order.id)
       @delivery.destroy
     end
-    @order.destroy
+    if @order.lechons
+      @lechons = Lechon.where(order_id: @order.id)
+      @lechons.destroy_all
+    end
 
     redirect_to orders_url, status: :see_other
   end
