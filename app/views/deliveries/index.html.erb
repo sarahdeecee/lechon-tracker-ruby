@@ -24,7 +24,10 @@
       <td><%= delivery.order.customer.phone_formatted %></td>
       <td><%= delivery.order.created_at.to_formatted_s(:long) %></td>
       <td><%= delivery.order.pickup_at ? delivery.order.pickup_at.to_formatted_s(:long) : '' %></td>
-      <td><%= delivery.arrival_at ? delivery.arrival_at.to_formatted_s(:long) : '' %></td>
+      <td><%= delivery.arrival_at ?
+        delivery.arrival_at.to_formatted_s(:long)
+        : (link_to "Mark Delivered", edit_delivery_path(order_id: delivery.order.id), class: "btn btn-primary disabled")
+        %></td>
       <td><%= delivery.location %></td>
       <td><%= delivery.address %></td>
       <td><%= delivery.deliverer ? delivery.deliverer.name : '' %></td>
