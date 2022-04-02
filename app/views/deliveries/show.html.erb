@@ -1,0 +1,38 @@
+<h1>Deliveries</h1>
+<% if @delivery %>
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Customer</th>
+      <th scope="col">Contact</th>
+      <th scope="col">Date Ordered</th>
+      <th scope="col">Date Scheduled</th>
+      <th scope="col">Arrival Time</th>
+      <th scope="col">Location</th>
+      <th scope="col">Address</th>
+      <th scope="col">Delivery Charge</th>
+      <th scope="col">Total</th>
+      <th scope="col">Notes</th>
+      <th scope="col">Details</th>
+    </tr>
+  </thead>
+    <tr>
+      <td><%= @delivery.order.customer.full_name %></td>
+      <td><%= @delivery.order.customer.phone_formatted %></td>
+      <td><%= @delivery.order.created_at.to_formatted_s(:long) %></td>
+      <td><%= @delivery.order.pickup_at ? @delivery.order.pickup_at.to_formatted_s(:long) : '' %></td>
+      <td><%= @delivery.arrival_at ? @delivery.arrival_at.to_formatted_s(:long) : '' %></td>
+      <td><%= @delivery.location %></td>
+      <td><%= @delivery.address %></td>
+      <td><%= @delivery.delivery_charge %></td>
+      <td><%= @delivery.order.total_price %></td>
+      <td><%= @delivery.order.notes %></td>
+      <td>
+        <%= link_to "Edit", "/deliveries", class: "btn btn-primary disabled" %>
+        <%= link_to "Delete", "/deliveries", class: "btn btn-danger disabled" %>
+      </td>
+    </tr>
+  </table>
+<% else %>
+  <p>Not found</p>
+<% end %>

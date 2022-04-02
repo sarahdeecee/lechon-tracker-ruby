@@ -4,10 +4,22 @@ class DeliveriesController < ApplicationController
   end
   
   def show
-    
+    @delivery = Delivery.find_by(order_id: params[:id])
   end
 
   def new
+    @delivery = Delivery.new
+  end
+
+  def create
+    puts "Params --------------> #{params}"
+    @delivery = Delivery.new(order_id: params[:id])
+
+    if @delivery.save
+      redirect_to '/orders'
+    else
+      render '/orders'
+    end
   end
 
   def destroy

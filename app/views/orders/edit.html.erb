@@ -33,10 +33,7 @@
     <tr>
       <th scope="col">Delivery</th>
       <td>
-        <%= button_to add_item_cart_path(order_id: @order.id), class: "btn btn-primary #{@order.delivery ? 'disabled' : ''}" , method: :post do %>
-          Add Delivery
-        <% end %>
-
+        <%= link_to "Add Delivery", new_delivery_path(@order.id), method: :get, class: "btn btn-primary #{@order.delivery ? 'disabled' : ''}" %>
         <%= link_to "Cancel Delivery", delivery_path(order_id: @order.id), method: :delete, data: {
           turbo_method: :delete,
           turbo_confirm: "Are you sure?"
