@@ -2,33 +2,16 @@
 - [ ] landing
 - [x] navigation
 
-### View
-- [x] customer
-- [x] order
-- [x] lechon
-- [x] deliveries
-- [ ] deliverers
-- [ ] suppliers
-- [ ] ovens
-
-### Add/Edit
-- [x] customer
-- [x] order
-- [ ] lechon
-- [x] deliveries
-- [ ] deliverers
-- [ ] suppliers
-- [ ] ovens
-
-### Search/Filter
-- [ ] customer
-- [ ] order
-- [ ] lechon
-- [ ] deliveries
-- [ ] deliverers
-- [ ] suppliers
-- [ ] ovens
+Model | Show | Add | Edit | Filter | Search
+--- | --- | --- | --- | --- | --- |
+Customer | :white_check_mark: | :white_check_mark: | :white_check_mark: |  |  |
+Order | :white_check_mark: | :white_check_mark: | :white_check_mark: |  |  |
+Lechon | :white_check_mark: |  |  |  |  |
+Deliveries | :white_check_mark: | :white_check_mark: | :white_check_mark: |  |  |
+Deliverers |  |  |  |  |  |
+Suppliers |  |  |  |  |  |
+Ovens |  |  |  |  |  |
 
 ### Reports
-
+- TBD
 
