@@ -32,8 +32,11 @@
       <td><%= delivery.order.total_price %></td>
       <td><%= delivery.order.notes %></td>
       <td>
-        <%= link_to "Edit", "/deliveries", class: "btn btn-primary disabled" %>
-        <%= link_to "Delete", "/deliveries", class: "btn btn-danger disabled" %>
+      <%= link_to "Edit", edit_delivery_path(delivery), class: "btn btn-primary" %>
+      <%= link_to "Cancel", delivery_path(order_id: delivery.order.id), method: :delete, data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+        }, class: "btn btn-danger" %>
       </td>
     </tr>
   <% end %>

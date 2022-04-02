@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     post   :remove_item
   end
 
-  resources :orders, :deliveries
+  resources :orders
+  
+  resources :deliveries, param: :order_id
 
   get "/customers", to: "customers#index", as: "customers"
   get "/customers/new", to: "customers#new"

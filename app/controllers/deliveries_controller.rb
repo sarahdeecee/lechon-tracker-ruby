@@ -14,7 +14,6 @@ class DeliveriesController < ApplicationController
   end
 
   def create
-    puts "Params --------------> #{params}"
     @delivery = Delivery.new(
       order_id: params[:delivery][:order_id],
       deliverer_id: params[:delivery][:deliverer_id],
