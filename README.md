@@ -20,7 +20,7 @@ I aim to gain a more thorough understanding of Ruby, Rails, and creating a proje
 
 ## Current Progress
 - [Planning file](./planning/PLANNING.md)
-- [Schema file](./app/db/schema.rb)
+- [Schema file](./db/schema.rb)
 ## Getting Started
 Type `rails server` in terminal to start the server.
 Open [`localhost:3000`](http://localhost:3000) in the browser.
