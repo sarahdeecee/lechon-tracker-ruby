@@ -73,7 +73,6 @@ class OrdersController < ApplicationController
       customer_id: :id,
       confirmed_at: DateTime.now,
       pickup_at: :pickup_at,
-      total_price: cart_subtotal_cents,
       notes: :notes,
     )
     puts order
@@ -88,7 +87,7 @@ class OrdersController < ApplicationController
     #     product: product,
     #     quantity: quantity,
     #     item_price: product.price,
-    #     total_price: product.price * quantity
+    #     total_sell_price: product.price * quantity
     #   )
     # end
     order.save!

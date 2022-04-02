@@ -15,7 +15,7 @@ one:
   delivery: false
   delivery_charge: 1
   status: MyString
-  total_price: 1
+  total_sell_price: 1
   payment_received: MyString
   payment_type: MyString
   payment_holder: MyString
@@ -36,7 +36,7 @@ two:
   delivery: false
   delivery_charge: 1
   status: MyString
-  total_price: 1
+  total_sell_price: 1
   payment_received: MyString
   payment_type: MyString
   payment_holder: MyString

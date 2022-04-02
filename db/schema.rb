@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_02_023535) do
     t.integer "order_id", null: false
     t.integer "quantity"
     t.integer "item_price_cents"
-    t.integer "total_price_cents"
+    t.integer "total_sell_price_cents"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "lechon_option_id"

@@ -5,7 +5,7 @@ class CreateCartItems < ActiveRecord::Migration[7.0]
       t.references :lechon, null: false, foreign_key: true
       t.integer :quantity
       t.integer :item_price_cents
-      t.integer :total_price_cents
+      t.integer :total_sell_price_cents
 
       t.timestamps
     end

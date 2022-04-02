@@ -20,7 +20,7 @@
       <tr>
         <td><%= lechon.order.id %></td>
         <td><%= lechon.order.customer.full_name %></td>
-        <td><%= lechon.size %></td>
+        <td><%= lechon.size.capitalize %></td>
         <td><%= lechon.weight %></td>
         <td><%= lechon.base_price %></td>
         <td><%= lechon.sell_price %></td>
@@ -28,6 +28,9 @@
         <td><%= lechon.ordered ? 'Yes' : 'No' %></td>
         <td><%= lechon.cook_start %></td>
         <td><%= lechon.cook_end %></td>
+        <td>
+        <%= link_to "Edit", edit_lechon_path(lechon.id), class: "btn btn-primary disabled" %>
+        <%= link_to "Delete", edit_lechon_path(lechon.id), class: "btn btn-danger disabled" %>
       </tr>
     <% end %>
     </table>

@@ -5,11 +5,11 @@ one:
   lechon: one
   quantity: 1
   item_price_cents: 1
-  total_price_cents: 1
+  total_sell_price_cents: 1
 
 two:
   order: two
   lechon: two
   quantity: 1
   item_price_cents: 1
-  total_price_cents: 1
+  total_sell_price_cents: 1

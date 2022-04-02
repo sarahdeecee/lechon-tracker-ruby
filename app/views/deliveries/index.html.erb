@@ -32,7 +32,7 @@
       <td><%= delivery.address %></td>
       <td><%= delivery.deliverer ? delivery.deliverer.name : '' %></td>
       <td><%= delivery.delivery_charge %></td>
-      <td><%= delivery.order.total_price %></td>
+      <td><%= delivery.order.total_sell_price %></td>
       <td><%= delivery.order.notes %></td>
       <td>
       <%= link_to "Edit", edit_delivery_path(order_id: delivery.order.id), class: "btn btn-primary" %>
