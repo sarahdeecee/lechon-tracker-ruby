@@ -1,5 +1,5 @@
 <h1>Deliveries</h1>
-<%= form_with model: @delivery, url: deliveries_path(@delivery), method: :post, local: true do |f| %>
+<%= form_with model: @delivery, url: deliveries_path(@delivery), method: :patch, local: true do |f| %>
   <table class="table">
     <tr>
       <th scope="col">Customer</th>
@@ -40,6 +40,6 @@
       </td>
     </tr>
   </table>
-  <%= f.submit "Add Delivery", class: "btn btn-primary" %>
+  <%= f.submit "Update Delivery", class: "btn btn-primary" %>
   <%= link_to "Cancel", "/deliveries", class: "btn btn-primary" %>
 <% end %>
