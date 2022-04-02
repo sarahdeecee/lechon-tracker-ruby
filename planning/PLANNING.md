@@ -1,6 +1,15 @@
 # Pages
 - landing/navigation
 
+### View
+- [x] customer
+- [x] order
+- [x] lechon
+- [x] deliveries
+- [ ] deliverers
+- [ ] suppliers
+- [ ] ovens
+
 ### Add/Edit
 - [x] customer
 - [x] order
@@ -10,13 +19,15 @@
 - [ ] suppliers
 - [ ] ovens
 
-### View
-- customers
-  - [x] all
-  - search
-- orders
-  - [x] all
-  - search
-- reports
+### Search/Filter
+- [ ] customer
+- [ ] order
+- [ ] lechon
+- [ ] deliveries
+- [ ] deliverers
+- [ ] suppliers
+- [ ] ovens
+
+### Reports
 
 
