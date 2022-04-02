@@ -35,28 +35,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(
-      customer_id: params[:customer_id],
-      pickup_at: params[:order][:pickup_at],
-      notes: params[:order][:notes]
-    )
-    if @order.save
-      if params[:delivery] == "true"
-        @delivery = Delivery.create(order_id: @order.id)
-      end
-      flash[:notice] = 'Account registered!'
-      redirect_to '/orders'
-    else
-      flash[:notice] = 'Failed'
-      redirect_to '/orders'
-    end
-
-    # if order.valid?
-    #   empty_cart!
-    #   redirect_to order, notice: 'Your Order has been placed.'
-    # else
-    #   redirect_to cart_path, flash: { error: order.errors.full_messages.first }
-    # end
+    create_order
   end
 
   def order_params
@@ -64,33 +43,40 @@ class OrdersController < ApplicationController
   end
 
   def empty_cart!
-    # empty hash means no products in cart :)
     update_cart({})
   end
 
   def create_order
-    order = Order.new(
-      customer_id: :id,
-      confirmed_at: DateTime.now,
-      pickup_at: :pickup_at,
-      notes: :notes,
+    @order = Order.new(
+      customer_id: params[:customer_id],
+      pickup_at: params[:order][:pickup_at],
+      notes: params[:order][:notes]
     )
-    puts order
-    # delivery
+    if @order.save
+      # add delivery
+      if params[:delivery] == "true"
+        @delivery = Delivery.create(order_id: @order.id)
+      end
 
-    # lechon_id
+      # add lechon
+      enhanced_cart.each do |entry|
+        puts entry
+        puts entry[:product][:size]
+        entry[:quantity].times {
+          @order.lechons.create(
+            size: entry[:product][:size],
+            base_price: entry[:product][:base_price],
+            sell_price: entry[:product][:sell_price]
+          )
+        }
+      end
 
-    # enhanced_cart.each do |entry|
-    #   product = entry[:product]
-    #   quantity = entry[:quantity]
-    #   order.cart_items.new(
-    #     product: product,
-    #     quantity: quantity,
-    #     item_price: product.price,
-    #     total_sell_price: product.price * quantity
-    #   )
-    # end
-    order.save!
-    order
+      flash[:notice] = 'Account registered!'
+      empty_cart!
+      redirect_to '/orders'
+    else
+      flash[:notice] = 'Failed'
+      redirect_to '/orders'
+    end
   end
 end

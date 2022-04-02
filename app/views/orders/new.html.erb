@@ -1,7 +1,7 @@
 <h1>New Order</h1>
 
 <%= form_with model: @order, method: :post do |form| %>
-
+  <%= flash[:notice] %>
   <div>
     <%= form.label 'Customer', {class: 'form-label'} %><br>
     <%= select_tag(:customer_id, options_from_collection_for_select(@customers, :id, :full_name), {class: 'form-control'}) %>
@@ -22,7 +22,9 @@
     <%= form.text_field :notes, {class: 'form-control'} %>     
   </div>
 
+  <%= render 'cart' %>
+
   <div>
-    <%= form.button "Create Order", class: 'btn btn-primary' %>
+    <%= form.submit "Create Order", class: 'btn btn-primary' %>
   </div>
 <% end %>

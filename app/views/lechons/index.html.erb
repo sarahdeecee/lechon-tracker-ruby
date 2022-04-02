@@ -24,7 +24,7 @@
         <td><%= lechon.weight %></td>
         <td><%= lechon.base_price %></td>
         <td><%= lechon.sell_price %></td>
-        <td><%= lechon.supplier.company_name %></td>
+        <td><%= lechon.supplier_id ? lechon.supplier.company_name : '' %></td>
         <td><%= lechon.ordered ? 'Yes' : 'No' %></td>
         <td><%= lechon.cook_start %></td>
         <td><%= lechon.cook_end %></td>
