@@ -25,7 +25,7 @@
       <td><%= order.pickup_at ? order.pickup_at.to_formatted_s(:long) : '' %></td>
       <td><%= order.delivery ? "Yes" : "No" %></td>
       <td><%= order.status %></td>
-      <td><%= order.total_price %></td>
+      <td><%= order.total_sell_price %></td>
       <td><%= order.notes %></td>
       <td><%= link_to "See Details", order_path(order), class: "btn btn-primary" %></td>
     </tr>
