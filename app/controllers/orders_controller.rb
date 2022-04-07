@@ -36,10 +36,14 @@ class OrdersController < ApplicationController
 
   def destroy
     @order = Order.find(params[:id])
+
+    # cancel associated delivery
     if @order.delivery
       @delivery = Delivery.find_by(order_id: @order.id)
       @delivery.destroy
     end
+
+    # cancel associated lechons
     if @order.lechons
       @lechons = Lechon.where(order_id: @order.id)
       @lechons.destroy_all
