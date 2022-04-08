@@ -30,8 +30,12 @@
       <td><%= @order.delivery ? "Yes" : "No" %></td>
     </tr>
     <tr>
+      <th scope="col">Deliverer</th>
+      <td><%= @order.delivery ? @order.delivery.deliverer.name : "N/A" %></td>
+    </tr>
+    <tr>
       <th scope="col">Delivery Charge</th>
-      <td><%= @order.delivery ? @order.delivery.delivery_charge : 0 %></td>
+      <td><%= @order.delivery ? @order.delivery.delivery_charge : "0" %></td>
     </tr>
     <tr>
       <th scope="col">Status</th>
