@@ -1,0 +1,30 @@
+<h1>Deliverers</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Details</th>
+    </tr>
+  </thead>
+  <% if @deliverers %>
+    <% @deliverers.each do |deliverer| %>
+    <tr>
+      <td><%= deliverer.id %></td>
+      <td><%= deliverer.name %></td>
+      <td><%= deliverer.phone %></td>
+      <td>
+      <%= link_to "Edit", edit_deliverer_path(id: deliverer.id), class: "btn btn-primary disabled" %>
+      <%= link_to "Delete", deliverer_path(id: deliverer.id), method: :delete, data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+        }, class: "btn btn-danger disabled" %>
+      </td>
+    </tr>
+  <% end %>
+  <% else %>
+    <p>No deliverers</p>
+  <% end %>
+</table>
